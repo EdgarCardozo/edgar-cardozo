@@ -1,0 +1,5 @@
+A Singleton candidate must satisfy three requirements:
+    controls concurrent access to a shared resource.
+    access to the resource will be requested from multiple, disparate parts of the system.
+    there can be only one object.
+
