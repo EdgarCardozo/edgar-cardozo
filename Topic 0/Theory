@@ -3,3 +3,9 @@ A Singleton candidate must satisfy three requirements:
     access to the resource will be requested from multiple, disparate parts of the system.
     there can be only one object.
 
+In Abstract Factory pattern an interface is responsible for creating a factory of related objects without explicitly specifying their classes. Each generated factory can give the objects as per the Factory pattern.
+Este patrón se puede aplicar cuando:
+
+    Un sistema debe ser independiente de como sus objetos son creados.
+    Un sistema debe ser 'configurado' con una cierta familia de productos.
+    Se necesita reforzar la noción de dependencia mutua entre ciertos objetos. 

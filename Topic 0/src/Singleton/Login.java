@@ -1,3 +1,5 @@
+package Singleton;
+
 //Singleton Example
 //This class will be the controller for database conecction
 public class Login {
