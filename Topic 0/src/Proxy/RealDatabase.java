@@ -4,5 +4,6 @@ package Proxy;
 public class RealDatabase implements Database{
     public void connectTo(String serverhost,String user, String pass){
         System.out.println("Connecting to: "+ serverhost);
+        System.out.println("Connected Successfully!");
     }
 }
