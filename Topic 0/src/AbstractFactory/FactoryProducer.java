@@ -1,11 +1,11 @@
 package AbstractFactory;
 
 public class FactoryProducer {
-    public static AbstractFactory getFactory(boolean factoryOne){
-        if(factoryOne){
-            return new ConcreteFactory1();
+    public static Connector getConnector(boolean isMySQL){
+        if(isMySQL){
+            return new MySQLConnector();
         }else{
-            return new ConcreteFactory2();
+            return new PostgreSQLConnector();
         }
     }
 }
