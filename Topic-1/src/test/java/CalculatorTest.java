@@ -10,8 +10,8 @@ public class CalculatorTest {
     }
 
     @Test
-    public void substractionTest(){
-        int result = Calculator.substract(5,1);
+    public void subtractionTest(){
+        int result = Calculator.subtract(5,1);
         int expected = 4; //5-1=4
         Assert.assertEquals(expected,result);
     }
