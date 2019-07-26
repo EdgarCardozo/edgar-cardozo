@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b9884b2-af5e-4d0e-8b05-ce8624fc5844" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Blog/Blog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Blog/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Blog/Repository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Blog/BlogTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RecentFileList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BehaviourList/RecentFileList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RecentFileListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BehaviourList/RecentFileListTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="2b9884b2-af5e-4d0e-8b05-ce8624fc5844" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
