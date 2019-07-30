@@ -1,0 +1,119 @@
+---
+swagger: "2.0"
+info:
+  description: |
+    This is a Shopping Cart server acording to [tasks](https://github.com/java-bootcamp-rcia/user-guide/wiki/Topic-3:-Services)
+  version: 1.0.0
+  title: Shopping cart
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: edgar07cardozo@hotmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /EdgarCardozo/ShoppingCart/1.0.0
+tags:
+- name: Shopping
+  description: An API for a shopping
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+- name: store
+  description: Access to Petstore orders
+- name: user
+  description: Operations about user
+  externalDocs:
+    description: Find out more about our store
+    url: http://swagger.io
+schemes:
+- https
+- http
+paths:
+  /carts:
+    get:
+      tags:
+      - cart
+      summary: Get all carts
+      description: Returns a Cart
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: Success!
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Cart'
+    post:
+      tags:
+      - cart
+      summary: Add a new cart
+      description: Add a new cart to the server
+      produces:
+      - aplication/json
+      parameters:
+      - in: body
+        name: body
+        description: The cart that will be added to the shopping
+        required: true
+        schema:
+          $ref: '#/definitions/Cart'
+      responses:
+        405:
+          description: Invalid input
+    put:
+      tags:
+      - cart
+      summary: Update an existing cart
+      description: Update an existing cart
+      produces:
+      - aplication/json
+      parameters:
+      - in: body
+        name: body
+        description: The cart that will be added to the shopping
+        required: true
+        schema:
+          $ref: '#/definitions/Cart'
+      responses:
+        405:
+          description: Invalid input
+definitions:
+  Cart:
+    type: object
+    required:
+    - idCart
+    - total
+    properties:
+      idCart:
+        type: integer
+        example: 300435
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/Product'
+      total:
+        type: number
+        example: 3.01
+  Product:
+    type: object
+    required:
+    - idProd
+    - price
+    - productName
+    - quantity
+    properties:
+      idProd:
+        type: integer
+        example: 25
+      productName:
+        type: string
+        example: Shampoo
+      quantity:
+        type: string
+        example: "3"
+      price:
+        type: number
+        example: 3.01
