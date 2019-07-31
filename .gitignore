@@ -1,2 +1,3 @@
-/Topic 0/.idea/workspace.xml
-/Topic 2/.idea/*
+Topic-2/.idea/**
+*/.idea/
+*.class

@@ -1,16 +1,15 @@
 package BehaviourList;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 public class RecentFileList {
-    private static ArrayList<String> fileList;
-
+    private static List fileList;
     public RecentFileList() {
         fileList = new ArrayList<String>(15);
     }
 
-    public static ArrayList getList(){
+    public static List getList(){
         return fileList;
     }
 
@@ -25,12 +24,11 @@ public class RecentFileList {
         System.out.println("The Recent Files are: " + fileList);
     }
 
-    public static ArrayList<String> toRelocate(String newFile){
-        ArrayList<String> relocatedList = new ArrayList<String>();
+    public static List<String> toRelocate(String newFile){
+        List<String> relocatedList = new ArrayList<String>();
         relocatedList.add(newFile);
         relocatedList.addAll(fileList);
         return relocatedList;
-
     }
 
     public static void clearLastPosition(){
