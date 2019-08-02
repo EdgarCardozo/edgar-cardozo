@@ -15,7 +15,12 @@ import java.util.Map;
 @Api(value="Cart Management System", description = "Operations pertaining to carts in Cart Management System")
 public class CartController {
 
-    private CartRepository cartRepository = CartRepository.getInstance();
+    private CartRepository cartRepository =new CartRepository();
+
+    public void setCartRepository(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
+    }
+
     //Read Carts
     @ApiOperation(value="View a list of carts saved on database")
     @ApiResponses(value = {
@@ -68,6 +73,7 @@ public class CartController {
         cart.setDiscount(cartDetails.getDiscount());
         cart.setPayment(cartDetails.getPayment());
         cart.setTotalPrice(cartDetails.getTotalPrice());
+        cartRepository.save(cart);
         return cart;
     }
     //Delete a Cart with the id given
@@ -81,9 +87,8 @@ public class CartController {
     @DeleteMapping("/delete/{id}")
     public Map<String,Boolean> deleteCart(@ApiParam(value="Cart id to delete from database", required = true) @PathVariable(value="id") long cartId){
         Cart cart = cartRepository.findById(cartId);
-        cartRepository.delete(cart);
         Map<String,Boolean> response = new HashMap<>();
-        response.put("deleted",true);
+        response.put("deleted",cartRepository.delete(cart));
         return response;
     }
 }
