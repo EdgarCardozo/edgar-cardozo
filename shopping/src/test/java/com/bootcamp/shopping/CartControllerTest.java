@@ -64,6 +64,7 @@ public class CartControllerTest {
 		Cart cart= new Cart(12, 12.5, "Cash", false, null);
 		cartController.setCartRepository(cartRepository);
 		when(cartRepository.save(cart)).thenReturn(cart);
+		when(cartRepository.findById(12)).thenReturn(cart);
 		Assert.assertEquals(cart,cartController.updateCart(12,cart));
 		Mockito.verify(cartRepository).save(cart);
 	}
@@ -77,6 +78,7 @@ public class CartControllerTest {
 		response.put("deleted",true);
 		cartController.setCartRepository(cartRepository);
 		when(cartRepository.delete(cart)).thenReturn(true);
+		when(cartRepository.findById(cart.getIdCart())).thenReturn(cart);
 		Assert.assertEquals(response,cartController.deleteCart(cart.getIdCart()));
 		Mockito.verify(cartRepository).delete(cart);
 		Mockito.verify(cartRepository).findById(cart.getIdCart());
