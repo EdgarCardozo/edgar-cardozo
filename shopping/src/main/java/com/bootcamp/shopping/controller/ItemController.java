@@ -15,7 +15,11 @@ import java.util.Map;
 @Api(value="Cart Management System", description = "Operations pertaining to carts in Cart Management System")
 public class ItemController {
 
-    private ItemRepository itemRepository= ItemRepository.getInstance();
+    private ItemRepository itemRepository =new ItemRepository();
+
+    public void setItemRepository(ItemRepository cartRepository) {
+        this.itemRepository = cartRepository;
+    }
 
     @ApiOperation(value = "View a list of products saved on database")
     @ApiResponses(value = {
@@ -65,7 +69,7 @@ public class ItemController {
         item.setName(itemDetails.getName());
         item.setPrice(itemDetails.getCost()*1.5);
         item.setCost(itemDetails.getCost());
-        return item;
+        return  itemRepository.save(item);
     }
     //Delete an Item with the id given
     @ApiOperation(value="Delete an existing item from the database")
@@ -76,11 +80,10 @@ public class ItemController {
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
     @DeleteMapping("/delete/{id}")
-    public Map<String,Boolean> deleteCart(@ApiParam(value="Item id to delete from database", required = true) @PathVariable(value="id") long itemId){
+    public Map<String,Boolean> deleteItem(@ApiParam(value="Item id to delete from database", required = true) @PathVariable(value="id") long itemId){
         Item item = itemRepository.findById(itemId);
-        itemRepository.delete(item);
         Map<String,Boolean> response = new HashMap<>();
-        response.put("deleted",true);
+        response.put("deleted",itemRepository.delete(item));
         return response;
     }
 }

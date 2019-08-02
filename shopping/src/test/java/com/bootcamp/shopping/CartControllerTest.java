@@ -18,14 +18,12 @@ import java.util.Map;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-
 @RunWith(MockitoJUnitRunner.class)
 public class CartControllerTest {
 	@Mock
 	CartRepository cartRepository = mock(CartRepository.class);
 
-	@Test//Si le mando el mock al controlador me dice nullPointerException
-	//Si no le mando me compara cualquier cosa en el assert
+	@Test
 	public void whenAllCartsAreRequestedThenAListOfAllCartsIsReturned() {
 		CartController cartController = new CartController();
 		cartController.setCartRepository(cartRepository);
@@ -67,6 +65,7 @@ public class CartControllerTest {
 		when(cartRepository.findById(12)).thenReturn(cart);
 		Assert.assertEquals(cart,cartController.updateCart(12,cart));
 		Mockito.verify(cartRepository).save(cart);
+			Mockito.verify(cartRepository).findById(12);
 	}
 
 	@Test
