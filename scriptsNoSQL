@@ -1,0 +1,23 @@
+use highschool;
+//db.createCollection("students");
+db.createCollection("courses");
+//db.createCollection("attends");
+//db.createCollection("teachers");
+//db.students.insertMany({});
+db.courses.insertMany({
+    "course_name": "BIG DATA",
+    "assigned_teacher":{"first_name","last_name","date_of_birth"},
+    "hours_by_week":16,
+    "schedule_time":[{"day":"monday",'inits":"14:00","ends":"16:00"},{}],
+    "students":[
+        {
+            "first_name":,"last_name":,"registration_number":,"date_of_birth":
+        },{
+            "first_name":,"last_name":,"registration_number":,"date_of_birth":        
+        },{
+            "first_name":,"last_name":,"registration_number":,"date_of_birth":
+        }]   
+});
+//db.teachers.insertMany({});
+//db.attends.insertMany({});
+db.courses.find({course_name:"BIG DATA",students.first_note:{$gt:4}},{students:1})rst_name
