@@ -1,36 +1,44 @@
 package com.bootcamp.shopping.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 public class Item {
+    @Column(name="category")
+    private String category;
     @Column(name = "price")
     private Double price;
-    @Column(name = "Name")
-    private String Name;
+    @Column(name = "name")
+    private String name;
     @Column(name = "cost")
     private Double cost;
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idItem;
     @OneToMany(mappedBy = "item")
     private Set<CartHasItems> carts;
     public Item(){
     }
-    public Item(Double cost, String name, int id) {
+
+    public Item(Double cost, String name, int id,String category) {
         this.setPrice(cost);
         this.setName(name);
         this.setId(id);
         this.setCost(cost);
+        this.setCategory(category);
+    }
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
     public Double getPrice() {
         return price;
     }
     public String getName() {
-        return Name;
+        return name;
     }
     public Double getCost() {
         return cost;
@@ -42,7 +50,7 @@ public class Item {
         this.price = cost*1.5;
     }
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
     public void setCost(Double cost) {
         this.cost = cost;
@@ -61,5 +69,5 @@ public class Item {
     }
     public void setCarts(Set<CartHasItems> carts) {
         this.carts = carts;
-    }
+       }
 }

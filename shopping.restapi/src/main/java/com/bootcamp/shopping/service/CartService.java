@@ -23,12 +23,9 @@ public class CartService {
         cartRepo.save(cart);
     }
     public Cart update(int cartId,Cart cart){
-        Cart updatedCart = cartRepo.findById(cartId).get();
-        updatedCart.setPayment(cart.getPayment());
-        updatedCart.setTotalPrice(cart.getTotalPrice());
-
-        cartRepo.save(updatedCart);
-        return updatedCart;
+        //VALIDAR DATOS
+        //VALIDAR PRECIO TOTAL
+        return cartRepo.save(cart);
     }
     public void delete(int cartId){
         cartRepo.deleteById(cartId);

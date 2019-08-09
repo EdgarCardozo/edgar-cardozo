@@ -1,8 +1,5 @@
 package com.bootcamp.shopping.model;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -17,6 +14,8 @@ public class Cart {
     private Boolean discount;
     @OneToMany(mappedBy = "cart")
     private Set<CartHasItems> items;
+    @OneToOne(mappedBy = "cart")
+    private User user;
 
     public Cart(){
     }

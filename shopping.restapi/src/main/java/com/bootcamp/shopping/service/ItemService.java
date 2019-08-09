@@ -16,11 +16,15 @@ public class ItemService {
     public List<Item> find(){
         return itemRepo.findAll();
     }
-
+    public List<Item> findByName(String name){
+        return itemRepo.findByName(name);
+    }
+    public List<Item> findByCategory(String category){
+        return itemRepo.findByCategory(category);
+    }
     public Item find(int itemId){
         return itemRepo.findById(itemId).get();
     }
-
     public Item create(Item item){
         return itemRepo.save(item);
     }

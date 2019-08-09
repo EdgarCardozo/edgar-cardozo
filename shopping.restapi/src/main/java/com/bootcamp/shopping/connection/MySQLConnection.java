@@ -10,7 +10,7 @@ public class MySQLConnection {
             mysqlConnection= new MySQLConnection(host,port,user,pass);
         }
         return mysqlConnection;
-    }   
+    }
     private MySQLConnection(String host,String port,String user, String pass){
         this.url = "jdbc:mysql://"+host+":"+port+"/shopping";
         this.user=user;

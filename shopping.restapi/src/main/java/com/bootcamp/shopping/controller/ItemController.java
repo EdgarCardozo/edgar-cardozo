@@ -2,22 +2,30 @@ package com.bootcamp.shopping.controller;
 
 import com.bootcamp.shopping.model.Item;
 import com.bootcamp.shopping.service.ItemService;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @RestController
+@RequestMapping("/items")
 public class ItemController {
+    private Logger logger;
     @Autowired
     private ItemService itemService;
     @GetMapping
     public List<Item> getAllItems(){
         return itemService.find();
+    }
+    @GetMapping(value = "/{name}")
+    public List<Item>  getByName(@PathVariable(value = "name") String itemName){
+        return itemService.findByName(itemName);
+    }
+    @GetMapping(value = "/{category}")
+    public List<Item> getByCategory(@PathVariable(value ="category") String itemCategory){
+        return itemService.findByCategory(itemCategory);
     }
     @GetMapping(value = "/{id}")
     public Item getItem(@PathVariable(value = "id") int itemId){
@@ -25,6 +33,7 @@ public class ItemController {
     }
     @PostMapping
     public Item addItem( @Valid @RequestBody Item item){
+        logger.debug(item);
         return itemService.create(item);
     }
     @PutMapping(value = "/{id}")
