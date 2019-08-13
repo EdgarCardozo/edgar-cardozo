@@ -13,20 +13,25 @@ public class Item {
     private String name;
     @Column(name = "cost")
     private Double cost;
+    @Column(name="stock")
+    private int stock;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idItem;
     @OneToMany(mappedBy = "item")
     private Set<CartHasItems> carts;
+    @OneToMany(mappedBy = "item")
+    private Set<Buys> bougths;
     public Item(){
     }
 
-    public Item(Double cost, String name, int id,String category) {
-        this.setPrice(cost);
+    public Item(Double cost, String name, int id,String category, int stock) {
+        this.setPrice(cost*1.5);
         this.setName(name);
         this.setId(id);
         this.setCost(cost);
         this.setCategory(category);
+        this.setStock(stock);
     }
     public String getCategory() {
         return category;
@@ -46,8 +51,20 @@ public class Item {
     public int getId() {
         return idItem;
     }
-    public void setPrice(Double cost) {
-        this.price = cost*1.5;
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+    public Set<Buys> getBougths() {
+        return bougths;
+    }
+    public void setBougths(Set<Buys> bougths) {
+        this.bougths = bougths;
+    }
+    public int getStock() {
+        return stock;
+    }
+    public void setStock(int stock) {
+        this.stock = stock;
     }
     public void setName(String name) {
         this.name = name;
@@ -60,9 +77,6 @@ public class Item {
     }
     public int getIdItem() {
         return idItem;
-    }
-    public void setIdItem(int idItem) {
-        this.idItem = idItem;
     }
     public Set<CartHasItems> getCarts() {
         return carts;

@@ -19,9 +19,17 @@ public class CartHasItems {
 
     int quantity;
 
-    public CartHasItems(CartItemKey id, int quantity) {
-        this.id = id;
-        this.quantity = quantity;
+    public CartHasItems(Cart cart, Item item,int quantity) {
+        this.setCart(cart);
+        this.setItem(item);
+        this.setQuantity(quantity);
+        CartItemKey cartItemKey = new CartItemKey();
+        cartItemKey.setIdCart(cart.getIdCart());
+        cartItemKey.setIdItem(item.getIdItem());
+        this.setId(cartItemKey);
+    }
+
+    public CartHasItems() {
     }
 
     public CartItemKey getId() {
@@ -35,5 +43,21 @@ public class CartHasItems {
     }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }

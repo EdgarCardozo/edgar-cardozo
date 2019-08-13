@@ -26,6 +26,7 @@ public class ItemService {
         return itemRepo.findById(itemId).get();
     }
     public Item create(Item item){
+        item.setPrice(item.getCost()*(1.5));
         return itemRepo.save(item);
     }
     public Item update(int itemId,Item itemDetails){

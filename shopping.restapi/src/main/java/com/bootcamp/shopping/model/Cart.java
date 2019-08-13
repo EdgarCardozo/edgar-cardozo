@@ -5,6 +5,7 @@ import java.util.Set;
 @Entity
 public class Cart {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idCart;
     @Column(name = "totalPrice")
     private Double totalPrice;

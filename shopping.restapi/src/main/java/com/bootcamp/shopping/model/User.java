@@ -1,6 +1,8 @@
 package com.bootcamp.shopping.model;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -14,13 +16,29 @@ public class User {
     @OneToOne
     @JoinColumn(name = "cart",referencedColumnName = "idCart")
     private Cart cart;
-/*
-    @OneToMany
-    private  Set<Bougths> bougths;*/
+
+    @OneToMany(mappedBy = "user")
+    private Set<Buys> buys;
+
+    public User(String username, String password, Cart cart) {
+        this.username = username;
+        this.password = password;
+        this.cart = cart;
+    }
+    public User(){}
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
         this.cart = cart;
     }
 

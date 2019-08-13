@@ -19,11 +19,11 @@ public class ItemController {
     public List<Item> getAllItems(){
         return itemService.find();
     }
-    @GetMapping(value = "/{name}")
+    @GetMapping(value = "/name/{name}")
     public List<Item>  getByName(@PathVariable(value = "name") String itemName){
         return itemService.findByName(itemName);
     }
-    @GetMapping(value = "/{category}")
+    @GetMapping(value = "/category/{category}")
     public List<Item> getByCategory(@PathVariable(value ="category") String itemCategory){
         return itemService.findByCategory(itemCategory);
     }
@@ -33,7 +33,6 @@ public class ItemController {
     }
     @PostMapping
     public Item addItem( @Valid @RequestBody Item item){
-        logger.debug(item);
         return itemService.create(item);
     }
     @PutMapping(value = "/{id}")
